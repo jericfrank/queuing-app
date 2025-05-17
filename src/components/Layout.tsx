@@ -1,6 +1,7 @@
 import '@fontsource/roboto/500.css';
 
 import { ReactNode } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   CssBaseline,
@@ -35,9 +36,9 @@ export default function Layout({ children }: LayoutProp) {
       >
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {MAIN_MENU_ITEMS.map(({ name, icon }, index) => (
+            {MAIN_MENU_ITEMS.map(({ name, icon, route }) => (
               <ListItem key={name} disablePadding>
-                <ListItemButton>
+                <ListItemButton component={RouterLink} to={route}>
                   <ListItemIcon>
                     {icon}
                   </ListItemIcon>
